@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash -x
 
 I2CPort=1
 I2CAddr=0x44
@@ -82,28 +82,104 @@ LED15_OFF_H=0x45 # 69
 ALL_LED_OFF_L=0xFC # 252
 ALL_LED_OFF_H=0xFD # 253
 
-PRE_SCALE[1]=0xFE # 254
- TestMode[2]=0xFF # 255
+PRE_SCALE_1=0xFE # 254
+ TestMode_2=0xFF # 255
 
-i2cset -y $I2CPort $I2CAddr $MODE1 0x00
-i2cset -y $I2CPort $I2CAddr $MODE1 16
-i2cset -y $I2CPort $I2CAddr $FREQ_SET 101
-i2cset -y $I2CPort $I2CAddr $MODE1 0
-
-
-sleep 5
 i2cset -y $I2CPort $I2CAddr $MODE1 128
 # Setting Channel 0 PWM on at 0 step, off at 150 step in 0 to 4095 steps at 60Hz
 
-i2cset -y $I2CPort $I2CAddr $LED0_ON_L  0
-i2cset -y $I2CPort $I2CAddr $LED0_ON_H  0
-i2cset -y $I2CPort $I2CAddr $LED0_OFF_L 150
-i2cset -y $I2CPort $I2CAddr $LED0_OFF_H 0
+i2cset -y $I2CPort $I2CAddr $LED0_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED0_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED0_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED0_OFF_H $4
 
 # Setting Channel 0 PWM on at 0 step, off at 150 step in 0 to 4095 steps at 60Hz
 
-i2cset -y $I2CPort $I2CAddr $LED1_ON_L  0
-i2cset -y $I2CPort $I2CAddr $LED1_ON_H  0
-i2cset -y $I2CPort $I2CAddr $LED1_OFF_L 50
-i2cset -y $I2CPort $I2CAddr $LED1_OFF_H 0
+i2cset -y $I2CPort $I2CAddr $LED1_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED1_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED1_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED1_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED2_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED2_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED2_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED2_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED3_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED3_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED3_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED3_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED4_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED4_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED4_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED4_OFF_H $4
+
+i2cset -y $I2CPort $I2CAddr $LED5_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED5_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED5_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED5_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED6_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED6_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED6_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED6_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED7_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED7_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED7_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED7_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED8_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED8_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED8_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED8_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED9_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED9_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED9_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED9_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED10_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED10_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED10_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED10_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED11_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED11_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED11_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED11_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED12_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED12_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED12_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED12_OFF_H $4
+
+i2cset -y $I2CPort $I2CAddr $LED13_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED13_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED13_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED13_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED14_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED14_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED14_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED14_OFF_H $4
+
+
+i2cset -y $I2CPort $I2CAddr $LED15_ON_L  $1
+i2cset -y $I2CPort $I2CAddr $LED15_ON_H  $2
+i2cset -y $I2CPort $I2CAddr $LED15_OFF_L $3
+i2cset -y $I2CPort $I2CAddr $LED15_OFF_H $4
+
 

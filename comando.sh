@@ -1,7 +1,7 @@
 #!/bin/bash
 
 I2CPort=1
-I2CAddr=0x44
+I2CAddr=$1
 
 MODE1=0x00 # 0
 MODE2=0x01 # 1
@@ -85,8 +85,11 @@ ALL_LED_OFF_H=0xFD # 253
 PRE_SCALE_1=0xFE # 254
  TestMode_2=0xFF # 255
 
-i2cset -y $I2CPort $I2CAddr $MODE1 0x00
-i2cset -y $I2CPort $I2CAddr $MODE1 16
-i2cset -y $I2CPort $I2CAddr $PRE_SCALE_1 105
-i2cset -y $I2CPort $I2CAddr $MODE1 0
+i2cset -y $I2CPort $I2CAddr $MODE1 128
+# Setting Channel 0 PWM on at 0 step, off at 150 step in 0 to 4095 steps at 60Hz
+
+i2cset -y $I2CPort $I2CAddr $LED0_ON_L  $2
+i2cset -y $I2CPort $I2CAddr $LED0_ON_H  $3
+i2cset -y $I2CPort $I2CAddr $LED0_OFF_L $4
+i2cset -y $I2CPort $I2CAddr $LED0_OFF_H $5
 
